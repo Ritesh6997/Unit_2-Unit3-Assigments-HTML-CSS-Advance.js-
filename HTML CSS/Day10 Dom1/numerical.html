@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 25%;
+            height:600px;
+            margin: auto;
+            display: grid;
+            grid-gap: 20px ;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 6fr;
+            padding: 2%;
+    }
+    #container>div{
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    
+    }
+    #container>div>input{
+        width: 98%;
+        height: 100%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        border-radius: 5px;
+    
+    }
+    #box{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,1fr); 
+        grid-gap: 3%;
+        padding: 5%;
+    }
+    div > button{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        font-size: 250%;
+        border-radius: 10px;
+        border: 1px solid black;  
+    }
+    .clear{
+        border-radius: 10px;
+        background-color: red;
+    }
+    input{
+        font-size: 250%;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><input id="input1" width="100%" type="text" value=""></div>
+        <div id="box">
+            <div><button onclick="press(0)">0</button></div>
+            <div><button onclick="press(1)">1</button></div>
+            <div><button onclick="press(2)">2</button></div>
+            <div><button onclick="press(3)">3</button></div>
+            <div><button onclick="press(4)">4</button></div>
+            <div><button onclick="press(5)">5</button></div>
+            <div><button onclick="press(6)">6</button></div>
+            <div><button onclick="press(7)">7</button></div>
+            <div><button onclick="press(8)">8</button></div>
+            <div><button onclick="press(9)">9</button></div>
+            <div><button class="clear" onclick="clear1()">Clear</button></div>
+        </div>
+        <h1 id="input"></h1>
+    </div>
+    
+</body>
+</html>
+<script>
+    var out="";
+    function press(el)
+    {
+        out=out+el
+        console.log(out)
+        document.getElementById("input1").value = out;
+    }
+    function clear1(el)
+    { out="";
+        document.getElementById("input1").value= out;
+    }
+</script>

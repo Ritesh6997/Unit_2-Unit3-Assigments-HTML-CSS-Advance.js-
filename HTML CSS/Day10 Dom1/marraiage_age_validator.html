@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 40%;
+            margin: auto;
+            padding: 2%;
+            border: 5px solid ;
+            text-align: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            background-color: rgb(207, 201, 201);
+            border-radius: 50px;
+            margin-top: 10%;
+        }
+        div > button{
+            margin-top:4%;  
+            color: white;
+            font-size: large;
+            font-weight: bold;
+        background-color: rgb(11, 117, 11);      }
+        h1{
+            margin: auto;
+            margin-bottom: 5%;
+        }
+        input{
+            border: 2px solid ;
+            text-align: center;
+            padding: 1%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>"Know your age is valid for Marriage"</h1>
+        <input id="year" type="text" value="" placeholder="Enter Year of Birth">
+        <select name="" id="" vlaue="">
+            <option value="">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <div>
+            <button onclick="alertfunction()">Click Here</button>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+    function alertfunction()
+    {
+        var yob=document.querySelector("#year").value;
+        var gender=document.querySelector("select").value;
+        yob=Number(yob);
+        if (yob<1000 || yob> 9999)
+            {
+                alert("Please Enter valid Year of Birth")
+            }
+        else if (yob=="" || gender=="")
+        {
+            alert("Please select your Gender or Enter year of birth")
+        }
+
+        else if (((yob>2001) && (gender=="male"))||((yob>2002) && (gender=="female")) )
+        {
+            alert("your age is not valid for marriage")
+        }
+        else 
+        {
+            alert("your age is valid for mairriage");
+        }
+    }
+</script>

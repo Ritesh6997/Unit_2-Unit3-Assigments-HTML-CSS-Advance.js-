@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .nav {
+        display: flex;
+        background-color: rgb(28, 41, 56);
+        color: white;
+        height: 50px;
+        padding: 25px 0 0 20px;
+        border-radius: 20px;
+        /* top right bottom left */
+      }
+      .left {
+        width: 70%;
+      }
+      .right {
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="left">Reebok</div>
+      <div class="right">
+        <div>
+          <a target="_blank" href="about.html">About</a>
+        </div>
+        <div onclick="window.location.href='men.html'">Men</div>
+        <div onclick="window.location.href='women.html'">Women</div>
+        <div onclick="window.location.href='login.html'">Login</div>
+        <div onclick="window.location.href='signup.html'">Signup</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  localStorage.setItem("name", "Masai School");
+</script>

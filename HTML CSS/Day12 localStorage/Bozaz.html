@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container1{
+            width: 80%;
+            margin: auto; 
+            margin-top: 5%;
+            padding: 1%;
+            display: flex;
+            justify-content:space-between;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            
+        }
+        #container1 > div:nth-child(1){
+           width: 30%;
+        }
+        #container1 > div:nth-child(2){
+         width: 55%;
+        }
+        
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        table{
+            margin-top: -2%;
+            width: 100%;
+        }
+        table,td{
+            border-bottom:2px solid rgb(172, 163, 163);
+            border-collapse: collapse;
+            padding: 3%;
+            font-size:large;
+            text-align: center;
+        }
+        thead{
+            font-weight: bold;
+            color: crimson;
+        }
+        .title{
+            font-size: 300%;
+            border-bottom: 1px solid rgb(161, 157, 157);
+            margin-bottom: 3%;
+            color: #4e989b;
+        }
+        form>div{
+            margin-bottom: 1%;
+            margin-top: 2%;
+            font-size: 120%;
+            font-weight: bold;
+        }
+        form>input,select{
+            height: 40px;
+        }
+        #add{
+            width: 50%;
+            font-size: medium;
+            font-weight: bold;
+            background-color: chartreuse;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div id="container1">
+        <div>
+            <form>
+                <div class="title"> Add Product</div>
+                <div>Category</div>
+                <select name="" id="select">
+                    <option value=""></option>
+                    <option value="electronics">Electronics</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="home appliance">Home Appliance</option>
+                    <option value="book">Book</option>
+                </select>
+                    <div>Product Name </div>
+                    <input id="pro" type="text"  placeholder="Product Title">
+                    <div>Product Discription</div>
+                    <textarea name="" id="des" cols="30" rows="10" placeholder="Product Description"></textarea>
+                    <div>Product Price</div>
+                    <input id="pri" type="number" placeholder="Product price">
+                    <div></div>
+                    <input id="add" type="submit" value="Add to List">
+                
+            </form>
+        </div>
+        <div>
+            <div class="title">Product Info</div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Category</td>
+                        <td>Title</td>
+                        <td>Description</td>
+                        <td>Price</td>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+document.querySelector("form").addEventListener("submit",addlist);
+var productList = JSON.parse(localStorage.getItem("itemList"))||[];
+// window.addEventListener("load", function () {
+    createTable(productList);
+//   });
+
+function addlist(event)
+{
+    event.preventDefault();
+    var product=document.querySelector("#pro").value;
+    var description=document.querySelector("#des").value;
+    var price=document.querySelector("#pri").value;
+    var category=document.querySelector("#select").value;
+    x={productNmae: product,productDes: description,productPrice: price,productCat: category}
+   productList.push(x);
+   localStorage.setItem("itemList", JSON.stringify(productList));
+   createTable(productList);
+   console.log(productList)
+
+}
+
+function createTable(productList)
+{
+ 
+    console.log(productList);
+    document.querySelector("tbody").innerHTML="";
+    productList.map(function(ele , i)
+    {
+        var tr=document.createElement("tr");
+        var td=document.createElement("td");
+        td.textContent=i+1;
+        var td1=document.createElement("td");
+        td1.textContent=ele.productCat;
+        var td2=document.createElement("td");
+        td2.textContent=ele.productNmae;
+        var td3=document.createElement("td");
+        td3.textContent=ele.productDes;
+        var td4=document.createElement("td");
+        td4.textContent=ele.productPrice;
+        var td5=document.createElement("td");
+        var btn=document.createElement("button");
+        btn.textContent="-";
+        btn.addEventListener("click",function(){
+            removeelement(i);
+        })
+        td5.append(btn);
+        tr.append(td,td1,td2,td3,td4,td5);
+        document.querySelector("tbody").append(tr);
+    })
+}
+
+function removeelement(i)
+{
+    productList.splice(i,1);
+    localStorage.setItem("itemList", JSON.stringify(productList));
+        createTable(productList); 
+
+}
+</script>

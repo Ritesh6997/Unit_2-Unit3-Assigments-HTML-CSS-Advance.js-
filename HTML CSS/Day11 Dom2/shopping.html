@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+     #container > div{
+            width: 21%;
+            height:50%;
+            margin:2%;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+        img{
+            width: 100%;
+            height:60%;
+        }
+        h1,h3,h2{
+            padding-left: 10%;
+            width: 100%;
+        }
+        span{
+            display: flex;
+        }
+        h3{
+            text-decoration:line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+       <div id="container">
+        
+       </div>
+</body>
+</html>
+<script>
+var data=[ {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},{image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},{image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},{image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},{image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},{image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"},
+           {image:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp" ,name:"LATEST SNEAKER" ,price:"$25.00" ,discount_price:"$95.00"}]
+    data.map(function(ele,Index)
+    {
+    var images=document.createElement("img");
+    var names=document.createElement("h1");
+    var prices=document.createElement("h2");
+    var discount_prices=document.createElement("h3");
+    images.setAttribute("src" ,value="https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp");
+    names.textContent=ele.name;
+    prices.textContent=ele.price;
+    discount_prices.textContent=ele.discount_price;
+    var spans=document.createElement("span")
+    spans.append(prices,discount_prices)
+    var divs=document.createElement("div")
+    divs.append(images,names,spans)
+    document.querySelector("#container").append(divs,);
+    
+    })
+    
+
+</script>

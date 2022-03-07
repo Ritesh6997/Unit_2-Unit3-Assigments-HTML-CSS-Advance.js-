@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            margin:0.5%;
+            margin-top: 20%;
+            border: 0;
+            padding: 1%;
+            font-size: 200%;
+            font-weight: bold;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var obj=[{name: "primary",bagcolor: "#0d6efd"},
+             {name: "secondary",bagcolor: "#d3d5d8"},
+             {name: "Success",bagcolor: "#198754"},
+             {name: "Danger",bagcolor: "#dc3847"},
+             {name: "Warning",bagcolor: "#febf08"},
+             {name: "Info",bagcolor: "#1ecdf1"}
+            ];
+
+    obj.map(function(ele,Index){
+        var btn=document.createElement("button");
+        btn.textContent=ele.name;
+        btn.style.backgroundColor=ele.bagcolor;
+        document.querySelector("body").append(btn);
+    })
+
+
+</script>
+
+var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+]

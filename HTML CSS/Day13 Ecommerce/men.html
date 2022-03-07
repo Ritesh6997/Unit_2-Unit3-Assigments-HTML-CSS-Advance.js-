@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+        #Navcontainer{
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(12, 12, 77);
+            color: white;
+            font-size: x-large;
+            padding: 1%;
+            text-transform:capitalize ;
+            border-radius: 5px;
+        }
+        #Navcontainer > div:nth-child(2){
+            width: 35%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+    
+        #mencontainer{
+            width: 90%;
+            margin: auto;
+            margin-top: 10%;
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 20px;
+
+        }
+        #mencontainer > div{
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+        }
+        img{
+            width: 100%;
+            height: 50%;
+        }
+        #prices{
+            display: flex;
+            justify-content: space-around;
+        }
+        #prices>h3{
+            text-decoration: line-through;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="Navcontainer">
+        <div>Home</div>
+        <div>
+            <div id="loginNav">login</div>
+            <div id="signupNav">signup</div>
+            <div id="menNav">men</div>
+            <div id="womenNav">women</div>
+            <div id="aboutNav">about</div>
+        </div>
+    </div>
+    <div id="add"> <button onclick="window.location.href='Addtocart.html'">Go To Cart</button>
+    <select onchange="applySort()" name="price" id="menSort">
+        <option value="">Sort By Price</option>
+        <option value="High">High To Low</option>
+        <option value="Low">Low To High</option>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+    </select>
+    <select onchange="applyFilter()" name="" id="mensfilter">
+        <option value="">filter brand</option>
+        <option value="REEBOK">Reebok</option>
+        <option value="Addidas">Addidas</option>
+    </select>
+    </div>
+    <div id="mencontainer">
+
+    </div>
+</body>
+</html>
+<script>
+    var x=document.querySelector("#loginNav").addEventListener("click",mylogin)
+function mylogin()
+{
+    window.location.href='login.html';
+}
+document.querySelector("#signupNav").addEventListener("click",mysignup)
+function mysignup()
+{
+    window.location.href='signup.html';
+}
+document.querySelector("#menNav").addEventListener("click",menpg)
+function menpg()
+{
+    window.location.href="men.html";
+}
+document.querySelector("#womenNav").addEventListener("click",womenpg)
+function womenpg()
+{
+    window.location.href="women.html";
+}
+document.querySelector("#aboutNav").addEventListener("click",aboutpg)
+function aboutpg()
+{
+    window.location.href="about.html";
+}
+    var mensData=JSON.parse(localStorage.getItem("mensData"))
+    console.log(mensData);
+    displayFunction();
+    function displayFunction()
+    {   document.querySelector("#mencontainer").textContent=""
+        mensData.map(function (ele,index)
+        {
+            var image=document.createElement("img")
+            image.setAttribute("src",value=ele.image_url);
+            var proName=document.createElement("h2");
+            proName.textContent=ele.name;
+            var proPrice=document.createElement("h2");
+            proPrice.textContent=ele.price;
+            var strikedoff=document.createElement("h3");
+            strikedoff.textContent=ele.strikedoffprice;
+            var divs1=document.createElement("div")
+            divs1.append(image);
+            var divs2=document.createElement("div")
+            divs2.setAttribute("id","prices")
+            divs2.append(proPrice,strikedoff)
+            var divs=document.createElement("div");
+            var btn=document.createElement("button");
+            btn.addEventListener("click",function()
+            {
+                addtocart(index)
+            })
+            btn.textContent="Add to Cart"
+            divs.append(divs1,proName,divs2,btn)
+            document.querySelector("#mencontainer").append(divs);
+        })
+   }
+    var cartData= JSON.parse(localStorage.getItem("cartData"))||[];
+    function addtocart(index)
+    { 
+       cartData.push(mensData[index]);
+       localStorage.setItem("cartData",JSON.stringify(cartData));
+       alert("Item Add Succesfully");
+    }
+    
+    function applySort()
+    {
+        sortValue=document.querySelector("#menSort").value;
+        if (sortValue=="Low")
+        {
+            mensData.sort(function(a,b)
+            {
+                return a.price-b.price;
+            })
+            displayFunction();
+        }
+        else if (sortValue=="High")
+        {
+            mensData.sort(function(a,b)
+            {
+                return b.price-a.price;
+            })
+            displayFunction();
+        }
+        else if (sortValue=="Z-A")
+        {
+            mensData.sort(function(a,b)
+            {
+                if (a.name>b.name)
+                return -1;
+                if (a.name<b.name)
+                return 1; 
+
+                return 0;
+            })
+            displayFunction()
+        }
+        else if (sortValue=="A-Z")
+        {
+            mensData.sort(function(a,b){
+                if (a.name>b.name)
+                return 1;
+                if (a.name<b.name)
+                return -1;
+
+                return 0;
+            })
+            displayFunction()
+        }
+    }
+
+    function applyFilter()
+    {
+        var filterValue=document.querySelector("#mensfilter").value;
+        if (filterValue=="REEBOK")
+        {
+            mensData= mensData.filter(function(ele)
+            {
+                return ele.BrandName=="REEBOK";
+            })
+            displayFunction();
+        }
+        else if(filterValue=="Addidas")
+        {
+           mensData= mensData.filter(function(ele)
+            {
+                return ele.BrandName=="Addidas";
+            })
+            displayFunction();
+        }
+    }
+    
+    
+    
+</script>

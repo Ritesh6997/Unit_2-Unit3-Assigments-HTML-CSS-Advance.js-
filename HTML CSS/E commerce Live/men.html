@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      #flex {
+        display: flex;
+        justify-content: space-around;
+      }
+      #flex > p:nth-child(2) {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Men page</h1>
+    <div id="container">
+      <!-- <div id="flex" >
+            <p>$100</p>
+            <p>$150</p>
+        </div> -->
+    </div>
+  </body>
+</html>
+
+<script>
+  var mensData = JSON.parse(localStorage.getItem("mensData"));
+
+  mensData.map(function (data) {
+    var div = document.createElement("div");
+    //img,name,price,strikedoffprice
+
+    // image creation
+    var image = document.createElement("img");
+    image.setAttribute("src", data.image_url);
+
+    // name creation
+
+    var name = document.createElement("p");
+    name.textContent = data.name;
+
+    // price creation
+
+    var div2 = document.createElement("div");
+    div2.setAttribute("id", "flex");
+
+    var p1 = document.createElement("p");
+    p1.textContent = data.price;
+
+    var p2 = document.createElement("p");
+    p2.textContent = data.strikedoffprice;
+    // p2.style.textDecoration = "line-through";
+
+    div2.append(p1, p2);
+
+    // add to cart button creation
+
+    var btn = document.createElement("button");
+    btn.textContent = "Add To Cart";
+
+    //append
+    div.append(image, name, div2, btn);
+    document.querySelector("#container").append(div);
+  });
+</script>

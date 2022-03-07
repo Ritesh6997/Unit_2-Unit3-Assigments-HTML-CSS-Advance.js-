@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50%;
+            margin: auto;
+            padding: 2%;
+            display: flex;
+            flex-direction: column;
+            border: hidden;
+            border-radius: 5px;
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+        form{
+            margin-bottom: 4%;
+            display: flex;
+            justify-content:space-between;
+            background-color: teal;
+            padding: 2%;
+            border: hidden;
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+        input{
+            padding: 1%;
+            margin: 1%;
+            border: groove rgb(235, 176, 14);
+            text-align: center;
+            width: 40%;
+        }
+        input:nth-child(3){
+            font-weight:bolder;
+            font-size: large;
+            width: 30%;
+            text-transform: uppercase;
+            border: hidden;
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+        table,td{
+            border: 2px solid;
+            border-collapse:collapse;
+            padding: 10px;  
+            text-align: center;     
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form>
+            <input id="pro" type="text" placeholder="Enter Product Name">
+            <input id="qty" type="number" placeholder="Enter Quantity">
+            <input type="submit" value="Add to cart">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Qunatity</td>
+                    <td>Remove</td>
+                </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+document.querySelector("form").addEventListener("submit",todolist);
+var todoArr = JSON.parse(localStorage.getItem("todotodo"))||[];
+window.addEventListener("load", function () {
+    createTable(todoArr);
+  });
+function todolist(event)
+
+{
+    //  console.log(event);
+    event.preventDefault();
+    var product=document.querySelector("#pro").value;
+    var qty=document.querySelector("#qty").value;
+    var tasklist={productNmae:product, proQty:qty}
+    todoArr.push(tasklist);
+    localStorage.setItem("todotodo",JSON.stringify(todoArr));
+    createTable(todoArr);
+}
+    function createTable(k)
+    {
+        // console.log(todoArr);
+        document.querySelector("tbody").innerHTML="";
+        k.map(function (ele,i)
+        {
+            var tr=document.createElement("tr");
+            var td1=document.createElement("td");
+            td1.textContent=ele.productNmae;
+            var td2=document.createElement("td");
+            td2.textContent=ele.proQty;
+            var td3=document.createElement("td");
+            var btn=document.createElement("button");
+            btn.setAttribute("id","press"+i)
+            btn.textContent="-";
+            td3.append(btn);
+            tr.append(td1,td2,td3);
+            document.querySelector("tbody").append(tr);
+           y= document.querySelector("#press"+i).addEventListener("click",remove)
+        });
+       
+
+    }
+    var arr2=[];
+    function remove(event){
+        var a=event.target.id[5];
+        var new1=[];
+        var c= JSON.parse(localStorage.getItem("todotodo"));
+        
+        for(i=0;i<c.length;i++)
+        {
+            if(i==a)
+            {
+
+            }
+            else
+            {
+                new1.push(c[i]);
+            }
+        }
+        todoArr=new1;
+        console.log(new1)
+        localStorage.clear();
+        localStorage.setItem("todotodo",JSON.stringify(todoArr));
+        
+        console.log(localStorage["todotodo"])
+        
+        createTable(todoArr);
+
+                   
+    };
+</script>

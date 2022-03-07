@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 70%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            
+        }
+        #container > div{
+            margin: 4%;
+            border-radius: 5px;
+            padding: 2%;
+            box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+           
+        }
+        .box1>form{
+            display: flex;
+            flex-direction: column;
+        }
+        form>select,textarea,input,div{
+            margin-top: 5%;
+        }
+       table,thead,tbody,tr,td,th{
+           border: 1px solid rgb(73, 68, 68);
+        border-collapse: collapse;
+        text-align: center;
+        padding: 5px;
+        font-size: 15px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        form>div{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: -10px;
+        }
+        form>input,select{
+            height: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="box1">
+            <h1>KARLO</h1>
+            <select onchange="filter()" name="" id="filter">
+                <option value="">Filter By Category</option>
+                <option value="refund ">Refund</option>
+                <option value="item missing">Item Missing</option>
+                <option value="order Status">Order Status</option>
+                <option value="Delivery">Delivery</option>
+                <option value="feedback">Feedback</option>
+            </select>
+            <select onchange="sortbynum()" name="" id="Sort">
+                <option value="">Sort By Ticket Number</option>
+                <option value="Low">Low to High</option>
+                <option value="High">High To Low</option>
+            </select>
+            <form>
+                <div>Category</div>
+                <select name="" id="category">
+                    <option value="">Select Category</option>
+                    <option value="refund ">Refund</option>
+                    <option value="item missing">Item Missing</option>
+                    <option value="order Status">Order Status</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+                <div>Description</div>
+                <textarea name="" id="ticketbody" cols="30" rows="10"></textarea>
+                <div>Date</div>
+                <input id="date" type="date">
+                <div>Ticket Number</div>
+                <input id="num" type="number" max="10" min="1">
+                <input type="submit">
+            </form>
+        </div>
+        <div>
+            <h1>List of Tickets</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>TicketCategory</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Ticket Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+document.querySelector("form").addEventListener("submit",datafunction)
+var datalist=JSON.parse(localStorage.getItem("Karlo"))||[]
+createTable(datalist);
+function filter()
+{
+   value1=document.querySelector("#filter").value;
+   console.log(value1)
+    var filterlist=datalist.filter(function(ele)
+    {
+        return ele.category==value1;
+    })
+    console.log(filterlist);
+    createTable(filterlist);
+}
+function datafunction(event)
+{
+    event.preventDefault();
+    var cat=document.querySelector("#category").value;
+    var text=document.querySelector("#ticketbody").value;
+    var date=document.querySelector("#date").value;
+    var num=document.querySelector("#num").value;
+    obj={ category:cat,textcontent:text,Date:date,number:num}
+    datalist.push(obj);
+    localStorage.setItem("Karlo",JSON.stringify(datalist));
+    createTable(datalist);
+}
+
+function createTable(datalist)
+{
+    document.querySelector("tbody").textContent="";
+    datalist.map(function (ele,index)
+    {   
+        var tr=document.createElement("tr");
+        var td1=document.createElement("td");
+        td1.textContent=ele.category;
+        var td2=document.createElement("td");
+        td2.textContent=ele.textcontent;
+        var td3=document.createElement("td");
+        td3.textContent=ele.Date;
+        var td4=document.createElement("td"); 
+        td4.textContent=ele.number;
+        tr.append(td1,td2,td3,td4);
+        document.querySelector("tbody").append(tr);
+    })
+}
+
+function sortbynum()
+{
+    sortvalue=document.querySelector("#Sort").value;
+    if(sortvalue=="Low")
+    {
+        y=datalist.sort(function(a,b)
+    {
+        return a.number-b.number
+    })
+    console.log(y)
+    createTable(datalist);
+    }
+    else if (sortvalue=="High")
+    {
+        y=datalist.sort(function(a,b)
+    {
+        return b.number-a.number
+    })
+    console.log(y)
+    createTable(datalist);
+    }
+
+}
+
+
+</script>

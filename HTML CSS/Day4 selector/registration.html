@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+           background-color: black; 
+           color: black;
+           font-size: 14px bold;
+        }
+        #container{
+            width:500px;
+            height:350PX ;
+            background-color: white;
+            margin: auto;
+            
+        }
+        #box{
+            width: 200px;
+            height: 220PX;
+            margin: 20px;
+            margin-top: 60PX;
+            
+            vertical-align: middle;
+            
+        }
+        .white-bg{
+            background-color: white;
+        }
+        .text-big{
+            font-size: 25px;
+        }
+        .text-small{
+            font-size: 10px bold;
+        }
+        .red-clo{
+            color: red;
+        }
+        .white-clo{
+            color: white;
+        }
+        .margin{
+            margin: 10px;
+        }
+        .margin-top{
+            margin-top:25px ;
+        }
+        .display{
+            display: inline-block;
+        }
+        .bottom-margin{
+            margin-bottom:0px ;
+        }
+        .top-margin{
+            margin-top:3px;
+        }
+        .border{
+            border: black solid 1px;
+        }
+        .width{
+            width: 152px;
+            padding:5px 10px;
+            text-align:center;
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box" class="display white-bg">
+           <div  class="white-bg margin top-margin bottom-margin">NAME</div>
+           <input class="white-bg margin border top-margin"type="text">
+            <div  class="white-bg margin bottom-margin">EMAIL</div>
+            <input class="white-bg margin top-margin border "type="email">
+           <div  class="white-bg margin bottom-margin">MOBILE</div>
+           <input class="white-bg margin top-margin border bottom-margin"type="number">
+           <div  class="white-bg margin top-margin text-small red-clo">Enter a valid moblie</div>
+           <div  class="margin width bottom-margin white-clo">REGISTER</div>
+        </div>
+        <div id="box"class="black-bg display">
+            <div  class="white-clo margin margin-top bottom-margin">NAME</div>
+            <div  class="white-clo margin text-big">MASAI</div>
+            <div  class="white-clo margin bottom-margin">EMAIL</div>
+            <div  class="white-clo margin">email@masaischool.com</div>
+            <div  class="white-clo margin bottom-margin">MOBILE</div>
+            <div  class="white-clo margin">9876543210</div>
+        </div>
+        
+    </div>
+</body>
+</html>

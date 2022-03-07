@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Navcontainer{
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(12, 12, 77);
+            color: white;
+            font-size: x-large;
+            padding: 1%;
+            text-transform:capitalize ;
+            border-radius: 5px;
+        }
+        #Navcontainer > div:nth-child(2){
+            width: 35%;
+            display: flex;
+            justify-content: space-around;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="Navcontainer">
+        <div>Home</div>
+        <div>
+            <div id="loginNav">login</div>
+            <div id="signupNav">signup</div>
+            <div id="menNav">men</div>
+            <div id="womenNav">women</div>
+            <div id="aboutNav">about</div>
+        </div>
+    </div>
+    <h1>This is About Page</h1>
+</body>
+</html>
+<script>
+    var x=document.querySelector("#loginNav").addEventListener("click",mylogin)
+function mylogin()
+{
+    window.location.href='login1.html';
+}
+document.querySelector("#signupNav").addEventListener("click",mysignup)
+function mysignup()
+{
+    window.location.href='signup1.html';
+}
+document.querySelector("#menNav").addEventListener("click",menpg)
+function menpg()
+{
+    window.location.href="men1.html";
+}
+document.querySelector("#womenNav").addEventListener("click",womenpg)
+function womenpg()
+{
+    window.location.href="women1.html";
+}
+document.querySelector("#aboutNav").addEventListener("click",aboutpg)
+function aboutpg()
+{
+    window.location.href="about1.html";
+}
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id="cardNum" type="number" placeholder="Card Number">
+        <input id="CCV" type="text" placeholder="CCV">
+        <input id="date" type="text" placeholder="Expiry Date">
+        <input type="text" placeholder="Enter Name">
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script>
+document.querySelector("form").addEventListener("submit", validate)
+function validate(event)
+{
+    event.preventDefault();
+    var cardNum=document.querySelector("#cardNum").value;
+    var cvv=document.querySelector("#CCV").value;
+    var date=document.querySelector("#date").value;
+    console.log(cardNum,cvv,date);
+    if ((cardNum=="1234567890") && (cvv=="123") && (date=="12/22"))
+    {
+        window.location.href="otp.html";
+    }
+    else
+    {
+        alert('Invalid Credidential');
+    }
+
+}
+</script>

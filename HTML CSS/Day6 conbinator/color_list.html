@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        #container{
+            width: 40%;
+            margin: auto;
+            height: 500px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(252, 252, 252);
+         }
+         #container > div {
+            width: 98%;
+            height: 25px;
+            margin: 0% 1%;
+            font-weight: bold;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+            font-size: 20px;
+            padding: 15px 0px ;
+         }
+         div :nth-child(1) {
+             background-color: white;
+             border-top: 1px solid gray;
+             border-radius: 5px 5px 0px 0px;
+         }
+         div :nth-child(2)
+         {
+            background-color: rgb(202, 202, 120);
+         }
+         div :nth-child(4n) {
+             background-color: rgb(168, 93, 93);
+         }
+         div :nth-child(3n)
+         {
+            background-color: rgb(155, 229, 178);
+         }
+         div :nth-child(5) {
+             background-color: rgb(121, 118, 118);
+         }
+         div :nth-child(9){
+             border-bottom:1px solid gray;
+             border-radius: 0px 0px 5px 5px;
+         }
+         
+    </style>
+    
+</head>
+<body>
+    <div id ="container">
+        <div>Dapibus ac facilisis in</div>
+        <div>This is a primary list group item</div>
+        <div>This os a secondary list group item</div>
+        <div>This is a secondary list group item</div>
+        <div>This is a success list group item</div>
+        <div>This is a danger lissst group item</div>
+        <div>This is a warning list group item</div>
+        <div>This is a info list group item</div>
+        <div>This is a light list group item</div>
+    </div>
+</body>
+</html>

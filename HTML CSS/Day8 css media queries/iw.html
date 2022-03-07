@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 80%;
+            margin: auto;
+            margin-top: 5%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(3,150px);
+            grid-gap:20px 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #container > div{
+            background-color: white;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            border-radius: 5px;
+        }
+        #container>div>h1,p{
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 8%;
+        }
+        #container>div>p{
+            color: gray;
+        }
+        #container span{
+            color: rgb(175, 160, 71);
+        }
+        @media only screen and (min-width: 0px) and (max-width: 320px){
+          #container{
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(9,150px);
+          } 
+        }
+        @media only screen and (min-width:320px) and (max-width:720px){
+            #container{
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(5,150px);
+          } 
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <h1>Cappuccino <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p>
+        </div>
+        <div><h1>Americano <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Espresso <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Macchiato <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Mocha <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Coffee Latte <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Piccolo Latte <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Ristretto <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+        <div><h1>Affogato <span>49$</span></h1>
+            <p>Usage of the internet is becoming more common due to rapid advance.</p></div>
+    </div>
+</body>
+</html>

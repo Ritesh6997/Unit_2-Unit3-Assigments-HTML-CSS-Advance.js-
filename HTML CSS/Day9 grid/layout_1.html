@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat (12,1fr);
+            grid-template-rows: 50px 150px;
+            grid-template-areas: 
+            "a a a a a a a a a a a a"
+            "b b b c c c d d d e e e";
+            grid-gap: 20px;
+            color: rgb(78, 72, 72);
+            font-size: 20px;
+        }
+        .a{
+            grid-area: a;
+            background-color: yellow;
+            color: black;
+            font-size: 25px;
+            padding: 10px;
+        }
+        .b{
+            grid-area: b;
+            background-color: red;
+        }
+        .c{
+            grid-area: c;
+            background-color: green;
+        }
+        .d{
+            grid-area: d;
+            background-color: blue;
+        }
+        .e{
+            grid-area: e;
+            background-color: gray;
+        }
+        @media screen and (min-width:0px) and (max-width:320px){
+            #container{
+                grid-template-rows: 100px 150px 150px 150px 150px ;
+                grid-template-areas: 
+                "a a a a a a a a a a a a"
+                "b b b b b b b b b b b b"
+                "c c c c c c c c c c c c"
+                "d d d d d d d d d d d d"
+                "e e e e e e e e e e e e";
+
+            }
+        }
+        @media screen and (min-width:320px) and (max-width:720px){
+            #container{
+                grid-template-rows: 75px 150px 150px;
+                grid-template-areas: 
+                 "a a a a a a a a a a a a"
+                 "b b b b b b d d d d d d"
+                 "c c c c c c e e e e e e";
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="a">Navigation</div >
+        <div class="b">Box1</div >
+        <div class="c">Box2</div >
+        <div class="d" >Box3</div >
+        <div class="e" >Box4</div>
+    </div>
+</body>
+</html>

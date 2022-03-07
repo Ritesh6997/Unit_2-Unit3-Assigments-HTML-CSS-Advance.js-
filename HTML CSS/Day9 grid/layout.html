@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat (12,1fr);
+            grid-template-rows: 75px 150px 150px 150px;
+            grid-template-areas: 
+            "n n n n n n n n n n n n"
+            "l l l l l l l l r1 r1 r1 r1"
+            "l l l l l l l l r2 r2 r2 r2"
+            "l l l l l l l l r3 r3 r3 r3";
+            grid-gap: 20px;
+            font-size: 25px;
+        }
+        #container > div{
+            padding: 15px;
+            text-transform: uppercase;
+            color: gray;
+        }
+
+        .n{
+            background-color: yellow;
+            grid-area: n;
+            font-size: 35px; 
+            color: black !important;
+        }
+        .l{
+            background-color:red ;
+            grid-area: l;
+        }
+        .r1{
+            background-color: greenyellow;
+            grid-area: r1;
+        }
+        .r2{
+            background-color:greenyellow ;
+            grid-area: r2;
+        }
+        .r3{
+            background-color:greenyellow ;
+            grid-area: r3;
+        }
+        @media screen and (min-width:0px) and (max-width:320px){
+            #container{
+                grid-template-rows: 75px 150px 150px 150px 150px 150px;
+            grid-template-areas: 
+            "n n n n n n n n n n n n"
+            "l l l l l l l l l l l l"
+            "l l l l l l l l l l l l"
+            "r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1 r1"
+            "r2 r2 r2 r2 r2 r2 r2 r2 r2 r2 r2 r2"
+            "r3 r3 r3 r3 r3 r3 r3 r3 r3 r3 r3 r3";
+            }
+        }
+        @media screen and (min-width:320px) and (max-width:720px){
+            #container{
+                grid-template-rows: 75px 150px 150px 150px;
+            grid-template-areas: 
+            "n n n n n n n n n n n n"
+            "l l l l l l l l l l l l"
+            "l l l l l l l l l l l l"
+            "r1 r1 r1 r1 r2 r2 r2 r2 r3 r3 r3 r3";
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="n">Navigation</div>
+        <div class="l">Left Box</div>
+        <div class="r1">Right Box1</div>
+        <div class="r2">Right Box2</div>
+        <div class="r3">Right Box3</div>
+    </div>
+</body>
+</html>

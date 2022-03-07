@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Navcontainer{
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(12, 12, 77);
+            color: white;
+            font-size: x-large;
+            padding: 1%;
+            text-transform:capitalize ;
+            border-radius: 5px;
+        }
+        #Navcontainer > div:nth-child(2){
+            width: 35%;
+            display: flex;
+            justify-content: space-around;
+        }
+        #h1{
+            display: flex;
+            justify-content: space-between;
+            font-size: larger;
+            
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="Navcontainer">
+        <div>Home</div>
+        <div>
+            <div id="loginNav">login</div>
+            <div id="signupNav">signup</div>
+            <div id="menNav">men</div>
+            <div id="womenNav">women</div>
+            <div id="aboutNav">about</div>
+        </div>
+    </div>
+       <h1>The total sum is total </h1>
+    <div>
+        <input id="promocode" type="text" placeholder="Apply Promocode">
+        <button id="Apply">Apply</button>
+        <button onclick="window.location.href='payment.html'">Pay</button>
+    </div>
+    <div id="cartcontainer">
+        
+        
+    </div>
+</body>
+</html>
+<script>
+    var x=document.querySelector("#loginNav").addEventListener("click",mylogin)
+function mylogin()
+{
+    window.location.href='login.html';
+}
+document.querySelector("#signupNav").addEventListener("click",mysignup)
+function mysignup()
+{
+    window.location.href='signup.html';
+}
+document.querySelector("#menNav").addEventListener("click",menpg)
+function menpg()
+{
+    window.location.href="men.html";
+}
+document.querySelector("#womenNav").addEventListener("click",womenpg)
+function womenpg()
+{
+    window.location.href="women.html";
+}
+document.querySelector("#aboutNav").addEventListener("click",aboutpg)
+function aboutpg()
+{
+    window.location.href="about.html";
+}
+   var cartData=JSON.parse(localStorage.getItem("cartData"))||[];
+   console.log(cartData);
+   displaycart(cartData)
+   function displaycart(cartData){
+    document.querySelector("#cartcontainer").textContent=""
+   cartData.map(function(ele,index)
+   {  
+     var image=document.createElement("img");
+     image.setAttribute("src",value=ele.image_url)
+     var name1=document.createElement("h2");
+     name1.textContent=ele.name;
+     var price=document.createElement("h2");
+     price.textContent=ele.price;
+     var sstrikedoff=document.createElement("h3");
+     sstrikedoff.textContent=ele.strikedoffprice;
+     var div1=document.createElement("div");
+     div1.append(image);
+     div2=document.createElement("div");
+     div2.append(price,sstrikedoff);
+     btn=document.createElement("button");
+     btn.textContent="Remove Item";
+     var div=document.createElement("div");
+     btn.addEventListener("click",function(){
+         removeElement(index);
+     })
+     div.append(div1,name1,div2,btn);
+     document.querySelector("#cartcontainer").append(div)
+        
+   });
+}
+
+   function removeElement(index)
+   {
+       console.log(index)
+        cartData.splice(index,1);
+        console.log(cartData);
+        localStorage.setItem("cartData",JSON.stringify(cartData));
+        displaycart(cartData);
+
+   }
+    var total=cartData.reduce(function(ac,ele)
+    {
+        return ac + ele.price
+    },0);
+   console.log(total);
+
+   
+   document.querySelector("h1").textContent= "The Total Sum is $"+total;
+   
+   document.querySelector("#Apply").addEventListener("click",applycoupan)
+    function applycoupan()
+    {
+        console.log(1);
+        var promocode=document.querySelector("#promocode").value;
+        if (promocode=="Masai30")
+        {
+            console.log(2);   
+            total1=total-((total*30)/100);
+            console.log(total);
+            document.querySelector("h1").textContent="The Total Sum is $"+total1;
+        }
+    }
+    document.querySelector("h1").textContent="The Total Sum is $"+total;
+
+               span=document.createElement("span").textContent="Total Item"+cartData.length;
+               document.querySelector("h1").append(span)
+
+</script>
