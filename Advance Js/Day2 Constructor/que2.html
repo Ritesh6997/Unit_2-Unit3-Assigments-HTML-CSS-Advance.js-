@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       #container{
+           width: 80%;
+           margin: auto;
+           display: grid;
+           grid-template-columns: repeat(4,1fr);
+           grid-gap: 10px;
+       }
+        #container>div{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: solid;
+    }
+    #container img{
+        width: 100%;
+    }
+   </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Student Data</h1>
+    <div id="container">
+        
+    </div>
+</body>
+</html>
+<script>
+    var data=JSON.parse(localStorage.getItem("studentData"));
+
+    display(data);
+    function display(data)
+    {
+        data.map(function (ele,index)
+        {
+            div1=document.createElement("div");
+            image=document.createElement("img");
+            image.setAttribute("src",value=" https://via.placeholder.com/150")
+            div1.append(image)
+            var div=document.createElement("div");
+            var id=document.createElement("span");
+            id.textContent=`Id No. ${index+1}`;
+            var name=document.createElement("span");
+            name.textContent=`Name:  ${ele.Name}`
+            var num=document.createElement("span");
+            num.textContent=`Contact No. : ${ele.Number}`
+            var city=document.createElement("span")
+            city.textContent=`City: ${ele.City}`
+            div.append(div1,id,name,num,city);
+            document.querySelector("#container").append(div);
+        })
+    }
+</script>

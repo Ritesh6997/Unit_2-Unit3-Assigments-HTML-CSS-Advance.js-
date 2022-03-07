@@ -1,0 +1,9 @@
+#display_div{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 50px;
+}
+#display_div img{
+    width: 100%;
+}

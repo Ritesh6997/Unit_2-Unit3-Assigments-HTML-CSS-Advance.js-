@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>This is Html</div>
+</body>
+</html>
+<script>
+    // var person1={
+    //     Name: 'pablo'
+    // }
+    // var person2={
+    //     Name:'pandu'
+    // }
+    // function Enterpreuner(a)
+    // {
+    //     console.log ( '${this.Name}  is an Enterpreuner');
+    // }
+    // Enterpreuner.call(person1);
+    // Enterpreuner.call(person2);
+
+    // function Enterpreuner(n,a)
+    // {
+    //    this.name=n;
+    //    this.price =a;
+    //    this.img=u;
+    // }
+    // var person1= Enterpreuner("elon","Musk")
+    // console.log(person1);
+
+    // function test()
+    // {
+    //     console.log(this)
+    // }
+
+    // var person={
+    //     name:"pandu",
+    //     myfunction:function()
+    //     {
+    //         console.log(this)
+    //     }
+    // }
+    // person.myfunction()
+    function enterpreuner(n,a,u)
+    {
+        this.name=n;
+        this.price=a;
+        this.img=u;
+    }
+    var person1=new enterpreuner("Elon","Musk");
+    console.log(person1)
+</script>

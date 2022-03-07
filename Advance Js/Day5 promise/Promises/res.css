@@ -1,0 +1,39 @@
+
+#container{
+    margin: auto;
+    text-align: center;
+    border: solid;
+    background-image: url('https://yt3.ggpht.com/ytc/AKedOLS5rTsrjzAgo0yJdrdHBSdEskUL4JsSwCvDCfcKdw=s900-c-k-c0x00ffffff-no-rj');
+    color:white;
+    }
+
+#display_id{
+    width: 30%;
+    margin: 10px 0 50px 60%;
+    padding: 30px;
+    font-size: 40px;
+    background-color: rgb(218, 203, 203);
+    color: red;
+    font-weight: bolder;
+}
+#show_img{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+
+}
+img{
+    width: 100%;
+}
+
+
+
+/* <div>Wel-Come TO MAccDonal</div>
+    <select onchange="OrderFood()" name="food" id="food">
+        <option value="">Menu</option>
+        <option value="burger">Burger</option>
+        <option value="pizza">Pizza</option>
+        <option value="coffee">Coffee</option>
+    </select>
+    <div id="display_id"></div>
+    <div id="show_img"></div> */

@@ -1,0 +1,50 @@
+#Navcontainer{
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    border: solid;
+    background-color: rgb(1, 1, 71);
+    border-radius: 5px;
+}
+#Navcontainer>span{
+    margin: 0 10px;
+    font-size:20px ;
+    font-weight: bold;
+    color:white;
+}
+
+#login-form-div{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+form{
+    width: 60%;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    border: solid rgb(207, 202, 202);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+form>input{
+    padding: 15px;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+form>div{
+    margin-bottom: 70px;
+    font-size: larger;
+    text-transform: capitalize;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#submit{
+    width: 40%;
+    background-color: teal;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    border:0;
+}

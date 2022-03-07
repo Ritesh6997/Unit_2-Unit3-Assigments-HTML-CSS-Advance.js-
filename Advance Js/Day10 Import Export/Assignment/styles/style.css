@@ -1,0 +1,53 @@
+#Navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(8, 8, 63);
+    color: white;
+    font-size:x-large ;
+    height: 70px;
+}
+#left{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#left>input{
+    width: 50%;
+    padding: 10px;
+}
+
+#rotd1{
+    width: 100%;
+}
+#search_div_result{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 70px;
+    margin-top: 20px;
+    width: 90%;
+    margin: auto;
+}
+#search_div_result img{
+    width: 100%;
+}
+#new_div{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+
+}
+#new_div>div{
+    margin: auto;
+    margin-top: 10%;
+    display: flex;
+    border: solid;
+    gap: 40px;
+}
+#new_div>div img{
+    width: 400px;
+    height: 400px;
+}

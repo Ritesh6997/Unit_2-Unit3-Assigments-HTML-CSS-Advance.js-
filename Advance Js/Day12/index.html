@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+      div{
+          height: 300px;
+      }
+      #container{
+          display: flex;
+          height:600px;
+          text-align: center;
+          align-items: center;
+          background-image: url("https://images.unsplash.com/photo-1620969427101-7a2bb6d83273?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHJhbnNsYXRpb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+          background-repeat: no-repeat;
+          background-size: cover;
+    }
+    #input-section{
+        flex: 1;
+        margin: 5%;
+        background-color: black;
+    }
+    #output-section{
+        flex: 1;
+        margin: 5%;
+        background-color: white;
+    }
+    #input-text{
+      margin-top: 5%;
+        width: 90%;
+        height: 80%;
+    }
+    #translate-btn{
+      color: white; 
+      width: 50%;
+      background-color: rgb(12, 12, 54);
+    }
+  </style>
+
+  <body>
+    <div id="container">
+      <div id="input-section" >
+        <!--Create input that will accept text to be translated, give id "input-text"-->
+        <textarea placeholder="Write the Text here which you want to Translate in Hindi"  id="input-text" ></textarea>
+        <!--Create button that will run translate text function, give id "translate-btn"-->
+        <button onclick="translateText()" id="translate-btn">Translate</button>
+      </div>
+      <div id="output-section">
+        <p id="translated-text">
+          <!--Show translated text here-->
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+    async function translateText()
+    {
+        try{
+        let input=document.getElementById("input-text").value;
+        let res=await fetch("https://libretranslate.de/translate",{
+            method:"POST",
+            body: JSON.stringify({
+                q:input,
+                source:"en",
+                target:"hi",
+                format:"text",
+            }),
+            headers:{
+                "Content-Type":"application/json",
+            },
+        });
+        let data=await res.json();
+        console.log("data:",data);
+        document.getElementById("translated-text").innerText = data.translatedText;
+    }
+        catch (error){
+            console.log("err:",error);
+        }
+  }
+</script>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #bodycontainer{
+        width: 60%;
+        margin: auto;
+        text-align: center;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+    #bodycontainer>h1{
+        color: #f8f8fa ;
+        font-family: cursive;
+        font-variant: small-caps;
+        background-color:teal;
+        border-radius: 5px;
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, teal 0px 1px 0px inset;
+    }
+
+#container{
+    display: flex;
+    justify-content: center;
+}
+#container>div,#ul{
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    justify-content: space-around;
+}
+#points{
+    width: 70%;
+}
+#navbar{
+    width: 30%;
+    background-color:rgb(252, 248, 248); 
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+#ul {
+    height: 100%;
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+    text-transform:initial;
+    text-align: justify;
+    padding: 0px,50px ;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+#ul>li{
+    width: 80%;
+}
+
+#navbar>button{
+    padding: 4px;
+    font-size: large;
+    font-weight: bolder;
+    background-color: rgb(5, 6, 56);
+    color: white;
+    margin: 2%;
+    text-transform: uppercase;
+}
+</style>
+<body>
+    <div id="bodycontainer">
+    <h1>Mini Js Datatype Learning App</h1>
+    <div id="container">
+        <div id="navbar">
+            <!-- here on clicking on any of the following button we 
+            calling that function and passing the specific parameter -->
+            <button onclick="info(0)">Object</button>
+            <button onclick="info(1)">Arrays</button>
+            <button onclick="info(2)">Function</button>
+            <button onclick="info(3)">String</button>
+            <button onclick="info(4)">Number</button>
+            <button onclick="info(5)">Null</button>
+            <button onclick="info(6)">Undefined</button> 
+        </div>
+        <!-- in the below div we are display data -->
+        <div id="points">
+            <ul id="ul">
+
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    //this our data in form of arr of object of arr;
+    information=[{
+        info:["object is a combination of key value pair","in object every key should be unique","we can asscess object by two method i.e dot and bracket notaion","It is a non-premetive data type data structure.","Object are mutable "]
+    },
+    {
+        info:["Array is data structure that combine a group of element","In which each element is stored at specfiied index","It is non-premetive type data structure","In javascript we can store a group of different type in a array","Array are mutable"]
+    },
+    {
+        info:["Functions are one of the fundamental building blocks in JavaScript","A function in JavaScript is similar to a procedure","a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function","it should take some input and return an output where there is some obvious relationship between the input and the output."]
+    },
+    {
+        info:["string is a group of number,character","It must be inclosed in double or single quotation marks","String are Primative Data type data structure","string are immutable"]
+    },
+    {
+        info:["Number is primative data type data structure","It is immutable","A Number only keeps about 17 decimal places ","The largest value a Number can hold is about 1.8E308.","Values higher than 1.8E308 are replaced with the special Number constant Infinity."]
+    },
+    {
+        info:["The value null is written with a literal: null","null is not an identifier for a property of the global object, like undefined can be.","In APIs, null is often retrieved in a place where an object can be expected but no object is relevant.", "Type of null is object"]
+    },
+    {
+        info:["Undefined is a property of the global object.","The global undefined property represents the primitive value undefined"," It is one of JavaScript's primitive types.","A variable that has not been assigned a value is of type undefined","A function returns undefined if a value was not returned."]
+    }
+    ]
+
+    // the below function is use to map the data and display on the bowser
+    function info(index)
+    {
+        // here index is the index number of above information arr and we are getting it when,
+        // we chick on the particular button in html. 
+        document.querySelector("#ul").textContent="";
+        var datatype=information[index];
+
+        datatype.info.map(function(ele)
+        {  //here we are mapping our data.
+            var line=document.createElement("li");
+            line.textContent=ele;
+            console.log(line);
+            document.querySelector("#ul").append(line);
+        })
+
+    }
+</script>

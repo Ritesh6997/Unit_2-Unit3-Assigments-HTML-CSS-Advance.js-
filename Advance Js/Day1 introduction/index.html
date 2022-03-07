@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        width: 60%;
+        margin: auto;
+        border: solid ;
+        text-align: center;
+        background-color: whitesmoke;
+    }
+    #Num{
+        width: 20%;
+        height:40px;
+        font-size: 25px;
+        margin: auto;
+        border: solid black;
+        background-color: white;
+    }
+    button{
+        width:20%;
+        margin: auto;
+        margin-top: 2%;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: teal;
+
+        
+    }
+</style>
+<body>
+<div id="container">
+    <h1> This is index</h1>
+    <div id="Num"></div>
+    <button onclick="NumberonDice()">Throw Dice</button>
+</div>
+    
+</body>
+</html>
+<script>
+function NumberonDice()
+{
+    document.querySelector("#Num").textContent=""
+    x=Math.floor((Math.random()*6)+1);
+   
+    y=document.querySelector("#Num")
+           y.append(x)
+    if (x==6)
+    {
+        console.log(x);
+        y.style.color = "green";
+    }
+    else if (x==1)
+    {
+        console.log(x);
+        y.style.color="yellow";
+    } 
+    else if (x==0)
+    {
+    }
+    else{
+        console.log(x);
+        y.style.color="red";   
+    }
+    
+}
+</script>

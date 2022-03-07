@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const Amar={
+        name:"Amar",
+        city:"Goa",
+        skill:"singing",
+        
+        singing(){
+            return (` is ${this.skill}`)
+        }
+        
+    }
+    const Akbar={
+        name: "Akbar",
+        city:"Mumbai",
+        skill:"Cooking",
+    }
+    const Anthony={
+        name:"Anthony",
+        city:"Kashmir",
+        skill:"Magician", 
+    }
+
+    let singing=Amar.singing();
+    let cooking= Amar.singing.call(Akbar);
+    let Magician=Amar.singing.call(Anthony);
+   
+    // if Amar wnat to sing; 
+    console.log(Amar.name,singing);
+    //if Amar want to cook;
+    console.log(Amar.name,cooking);
+    //if Amar wnat to do Magic;
+    console.log(Amar.name,Magician);
+     // if Akabar wnat to sing; 
+     console.log(Akbar.name,singing);
+    //if Akbar want to cook;
+    console.log(Akbar.name,cooking);
+    //if Akbar wnat to do Magic;
+    console.log(Akbar.name,Magician);
+     // if Anthony wnat to sing; 
+     console.log(Anthony.name,singing);
+    //if Anthony want to cook;
+    console.log(Anthony.name,cooking);
+    //if Anthony wnat to do Magic;
+    console.log(Anthony.name,Magician);
+
+
+
+    
+</script>

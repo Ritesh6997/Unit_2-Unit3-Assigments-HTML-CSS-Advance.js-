@@ -1,0 +1,58 @@
+   #Navcontainer{
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    border: solid;
+    background-color: rgb(1, 1, 71);
+    border-radius: 5px;
+    }
+    #Navcontainer>span{
+        margin: 0 10px;
+        font-size:20px ;
+        font-weight: bold;
+        color:white;
+    }
+    #slideshow{
+        /* border: 1px solid;  */
+        text-align: center;
+         padding: 20px 0; 
+    }
+    #slideshow>img{
+        width:100%;
+        height: 550px;
+    }
+
+   #movies{
+       display:grid;
+       grid-template-columns: repeat(3,1fr);
+       grid-gap: 50px 70px;
+   } 
+   #movies>div{
+       height: 200px;
+       display: flex;
+        justify-content: space-between; 
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+   }
+   #movies>div>img{
+       width: 50%;
+       height: 100%;
+   } 
+   #movies>div>div{
+       text-align: left;
+       margin-right: 2%;
+       display: flex;
+       flex-direction: column;
+       justify-content:center;
+   }
+
+   #sort-buttons{
+       margin: 10px;
+       text-align: end;
+   }
+   #sort-buttons>button{
+       padding: 10px;
+       width: 100px;
+       font-size:larger ;
+       font-weight: bold;
+       text-transform: capitalize;
+   }

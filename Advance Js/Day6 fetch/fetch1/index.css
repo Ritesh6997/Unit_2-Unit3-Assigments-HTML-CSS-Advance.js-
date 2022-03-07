@@ -1,0 +1,63 @@
+#searchbox{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    background-color: rgb(3, 3, 56);
+    border: rgb(92, 90, 90) solid;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+#searchbox>input,div,button{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+#searchbox>input{
+    width: 50%;
+    font-size: 30px;
+}
+#searchbox>div{
+    font-size: 30px;
+    color: white;
+    font-weight:bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#searchbox>button{
+    width: 20%;
+    margin: auto;
+    background-color: rgb(3, 3, 56);
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    border: solid white;
+}
+#Display_Data{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4,1fr);
+}
+#Display_Data>div{
+ display: flex;
+ flex-direction: column;
+ box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+ background-color: black;
+ color: white;
+ border-radius: 5px;
+}
+#Display_Data>div>img{
+    width: 100%;
+    height: 300px;
+}
+#Display_Data>div>img:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    border: solid whitesmoke;
+}
+.recomended{
+    background-color: rgb(252, 2, 2);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+

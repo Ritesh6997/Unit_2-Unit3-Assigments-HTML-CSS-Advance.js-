@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body{
+            background-image:url("https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="topbar">
+        <div id="frontbox">city wether Report</div>
+        <div id="endbox">
+        <input id="url" type="text">
+        <button onclick="getWeatherData()">Search</button>
+        </div>
+        
+    </div>
+<div class="mapouter">
+    <div id="displaydata">
+
+    </div>
+    <div class="gmap_canvas">
+        <iframe width="600" height="500" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+        </iframe><a href="https://fmovies-online.net">fmovies</a><br>  
+        <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+    </div>
+</div>
+<div id="week">
+   
+</div>
+</body>
+</html>
+<script src="index.js"></script>
+<script src="https://kit.fontawesome.com/629044acfa.js" crossorigin="anonymous"></script>
